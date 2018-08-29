@@ -17,3 +17,24 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->email,
     ];
 });
+
+$factory->define(App\Member::class, function (Faker\Generator $faker) {
+    return [
+        'firstname' => $faker->firstname,
+        'insertion' => '',
+        'surname' => $faker->lastname,
+        'group' => $faker->randomElement([
+            'Committee',
+            'General Crew',
+            'Kookcie',
+            'Group 1',
+            'Group 2',
+            'Group 3',
+            'Group 4',
+            'Group 5',
+            'Group 6',
+            'Group 7',
+            'Group 8',
+        ]),
+    ];
+});

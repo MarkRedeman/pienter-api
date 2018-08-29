@@ -58,14 +58,16 @@ $app->singleton(
 | route or middleware that'll be assigned to some specific routes.
 |
 */
+$app->configure('francken');
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([
+    App\Http\Middleware\CorsMiddleware::class,
+]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+$app->routeMiddleware([
+   // 'auth' => App\Http\Middleware\Authenticate::class,
+    'plus-one' => App\PlusOne\Http\Middleware\AuthenticatePlusOne::class,
+]);
 
 /*
 |--------------------------------------------------------------------------
