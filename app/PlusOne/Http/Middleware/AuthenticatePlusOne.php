@@ -30,7 +30,7 @@ final class AuthenticatePlusOne
      */
     public function handle($request, Closure $next)
     {
-            return $next($request);
+        return $next($request);
         $token = $request->bearerToken();
 
         if (! $token) {
