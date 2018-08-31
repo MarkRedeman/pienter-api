@@ -10,6 +10,7 @@ class Member extends Model
         'firstname',
         'insertion',
         'surname',
+        'birthdate',
         'group',
     ];
 }

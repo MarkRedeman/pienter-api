@@ -25,12 +25,17 @@ $router->group([
         $router->get('members', 'MembersController@index');
         $router->post('members', 'MembersController@store');
         $router->put('members/{memberId}', 'MembersController@update');
+        $router->delete('members/{memberId}', 'MembersController@remove');
 
         $router->get('products', 'ProductsController@index');
         $router->get('committees', 'CommitteesController@index');
+        $router->get('statistics/categories', 'CategoryStatisticsController@index');
+        $router->get('statistics/activities', 'CategoryStatisticsController@index');
 
         $router->get('orders', 'OrdersController@index');
         $router->post('orders', 'OrdersController@post');
         $router->delete('orders/{orderId}', 'OrdersController@remove');
+
+        $router->get('boards', 'BoardsController@index');
     });
 });

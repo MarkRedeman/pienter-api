@@ -22,7 +22,6 @@ final class OrdersController
     public function index()
     {
         return $this->orders->table('transactions')
-            ->take(100)
             ->orderBy('ordered_at', 'DESC')
             ->get()
             ->map(function ($transactie) {
@@ -32,9 +31,8 @@ final class OrdersController
                     'id' => $transactie->id,
                     'member_id' => $transactie->member_id,
                     'product_id' => $transactie->product_id,
-                    'amount' => 1,
                     'orderd_at' => $transactie->ordered_at,
-                    'price' => $transactie->amount,
+                    'price' => $transactie->price,
                 ];
             });
     }
@@ -57,7 +55,7 @@ final class OrdersController
                 ->insert([
                     'member_id' => $order['member']['id'],
                     'product_id' => $product['id'],
-                    'amount' => $productFromDb->amount,
+                    'price' => $productFromDb->price,
                     'ordered_at' => (new \DateTimeImmutable())->setTimestamp(
                         (int) ($order['ordered_at'] / 1000)
                     ),

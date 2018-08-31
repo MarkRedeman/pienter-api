@@ -19,6 +19,10 @@ class AddMembersTable extends Migration
 
             $table->string('group')->nullable();
 
+            $table->date('birthdate');
+
+            $table->softDeletes();
+
             // We don't need these timestamps, but the factory builder does...
             $table->timestamps();
         });

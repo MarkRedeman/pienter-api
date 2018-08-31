@@ -23,6 +23,7 @@ $factory->define(App\Member::class, function (Faker\Generator $faker) {
         'firstname' => $faker->firstname,
         'insertion' => '',
         'surname' => $faker->lastname,
+        'birthdate' => $faker->dateTime,
         'group' => $faker->randomElement([
             'Committee',
             'General Crew',

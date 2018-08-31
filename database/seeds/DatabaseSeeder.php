@@ -10,18 +10,25 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $products = [
-            ['id' => 1, 'name' => '1 Coin', 'amount' => 100],
-            ['id' => 5, 'name' => '5 Coins', 'amount' => 500],
-            ['id' => 10, 'name' => '10 Coins', 'amount' => 1000],
-            ['id' => 15, 'name' => '15 Coins', 'amount' => 1500],
-            ['id' => 20, 'name' => '20 Coins', 'amount' => 2000],
-            ['id' => 25, 'name' => '25 Coins', 'amount' => 2500],
-            ['id' => 30, 'name' => '30 Coins', 'amount' => 3000],
-            ['id' => 35, 'name' => '35 Coins', 'amount' => 3500],
-            ['id' => 40, 'name' => '40 Coins', 'amount' => 4000],
-            ['id' => 45, 'name' => '45 Coins', 'amount' => 4500],
-            ['id' => 50, 'name' => '50 Coins', 'amount' => 5000],
-            ['id' => 55, 'name' => '55 Coins', 'amount' => 5500],
+            ['id' => 1, 'name' => '1 Coin', 'price' => 1, 'category' => 'Eten'],
+            ['id' => 5, 'name' => '5 Coins', 'price' => 5, 'category' => 'Eten'],
+            ['id' => 10, 'name' => '10 Coins', 'price' => 10, 'category' => 'Eten'],
+            ['id' => 15, 'name' => '15 Coins', 'price' => 15, 'category' => 'Eten'],
+            ['id' => 20, 'name' => '20 Coins', 'price' => 20, 'category' => 'Eten'],
+            ['id' => 25, 'name' => '25 Coins', 'price' => 25, 'category' => 'Eten'],
+            ['id' => 30, 'name' => '30 Coins', 'price' => 30, 'category' => 'Eten'],
+            ['id' => 35, 'name' => '35 Coins', 'price' => 35, 'category' => 'Eten'],
+            ['id' => 40, 'name' => '40 Coins', 'price' => 40, 'category' => 'Eten'],
+            ['id' => 45, 'name' => '45 Coins', 'price' => 45, 'category' => 'Eten'],
+            ['id' => 50, 'name' => '50 Coins', 'price' => 50, 'category' => 'Eten'],
+            ['id' => 55, 'name' => '55 Coins', 'price' => 55, 'category' => 'Eten'],
+        ];
+
+        $products = [
+            ['id' => 1, 'name' => 'Beer', 'price' => 50, 'category' => 'Bier'],
+            ['id' => 2, 'name' => 'Wine', 'price' => 50, 'category' => 'Bier'],
+            ['id' => 3, 'name' => 'Soda', 'price' => 50, 'category' => 'Fris'],
+            ['id' => 4, 'name' => 'Straw', 'price' => 0, 'category' => 'Eten'],
         ];
 
         app('db')->table('products')->truncate();
@@ -35,6 +42,8 @@ class DatabaseSeeder extends Seeder
             'insertion' => '',
             'surname' => 'Redeman',
 
+            'birthdate' => new DateTime('1993-04-26'),
+
             'group' => 'S[ck]rip(t|t?c)ie',
             ],
         ];
@@ -44,7 +53,7 @@ class DatabaseSeeder extends Seeder
                 ->insert([
                     'member_id' => 1,
                     'product_id' => 1,
-                    'amount' => 100,
+                    'price' => 100,
                     'ordered_at' => '2018-08-27 21:52:02',
                 ]);
     }

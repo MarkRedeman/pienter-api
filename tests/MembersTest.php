@@ -81,7 +81,7 @@ class MembersTest extends TestCase
                 'achternaam',
                 'geboortedatum',
                 'latest_purchase_at',
-                'total_coins',
+                'total_spent',
                 'prominent',
                 'bijnaam',
                 'kleur',
@@ -95,20 +95,23 @@ class MembersTest extends TestCase
     /** @test */
     public function getting_all_members_where_one_member_has_made_a_purchase()
     {
-        $member = factory(\App\Member::class)->create();
+        $member = factory(\App\Member::class)->create([
+            'birthdate' => new DateTime('1990-01-01'),
+            'group' => 'Group 4'
+        ]);
         $orderedAt = new \DateTimeImmutable('2018-01-01');
 
         DB::table('transactions')->insert([
             'member_id' => $member->id,
             'product_id' => 1,
-            'amount' => 1,
+            'price' => 100,
             'ordered_at' => $orderedAt,
         ]);
 
         DB::table('transactions')->insert([
             'member_id' => $member->id,
             'product_id' => 1,
-            'amount' => 2,
+            'price' => 200,
             'ordered_at' => $orderedAt,
         ]);
 
@@ -121,7 +124,8 @@ class MembersTest extends TestCase
                     'achternaam' => $member->surname,
                     'geboortedatum' => '1990-01-01',
                     'latest_purchase_at' => '2018-01-01 00:00:00',
-                    'total_coins' => 3,
+                    'total_spent' => 300,
+                    'group' => 'Group 4',
                     'prominent' => null,
                     'bijnaam' => null,
                     'kleur' => null,

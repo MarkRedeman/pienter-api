@@ -15,7 +15,7 @@ class AddTransactionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('member_id');
             $table->unsignedInteger('product_id');
-            $table->unsignedInteger('amount');
+            $table->unsignedInteger('price');
             $table->dateTime('ordered_at');
             $table->dateTime('removed_at')->nullable();
         });
