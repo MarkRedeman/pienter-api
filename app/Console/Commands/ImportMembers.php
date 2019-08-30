@@ -55,14 +55,24 @@ class ImportMembers extends Command
         $headers = $csv->getHeader();
         $this->info("");
         foreach ($csv as $record) {
+            $birthdate = $record[$headers[4]];
+
+            if ($birthdate === '') {
+                $birthdate = '01/01/1990';
+            }
+
             $members[] = [
                 'firstname' => $record[$headers[0]],
                 'insertion' => $record[$headers[1]],
                 'surname' => $record[$headers[2]],
                 'group' => $record[$headers[3]],
+                'birthdate' => DateTimeImmutable::createFromFormat(
+                    'm/d/Y',
+                    $birthdate
+                ),
             ];
         }
-        $this->table(['firstname', 'insertion', 'surname', 'group'], $members);
+        // $this->table(['firstname', 'insertion', 'surname', 'group'], $members);
 
         $amount = count($members);
         if ($this->confirm("Would you like to import {$amount} members?")) {

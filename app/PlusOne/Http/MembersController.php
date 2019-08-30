@@ -51,6 +51,7 @@ final class MembersController
 
                     // Since we only sell coins we don't care about people's birthday
                     'geboortedatum' => '1990-01-01',
+                    'geboortedatum' => (new \DateTimeImmutable($member->birthdate))->format('Y-m-d'),
 
                     'latest_purchase_at' => $member->latest_purchase_at,
                     'total_spent' => (int) $member->total_spent,
