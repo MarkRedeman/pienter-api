@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
         ];
 
         $products = [
-            ['id' => 1, 'name' => 'Beer', 'price' => 50, 'category' => 'Bier'],
-            ['id' => 2, 'name' => 'Wine', 'price' => 50, 'category' => 'Bier'],
-            ['id' => 3, 'name' => 'Soda', 'price' => 30, 'category' => 'Fris'],
+            ['id' => 1, 'name' => 'Beer', 'price' => 100, 'category' => 'Bier'],
+            ['id' => 2, 'name' => 'Wine', 'price' => 100, 'category' => 'Bier'],
+            ['id' => 3, 'name' => 'Soda', 'price' => 70, 'category' => 'Fris'],
             ['id' => 4, 'name' => 'Straw', 'price' => 0, 'category' => 'Eten'],
         ];
 
